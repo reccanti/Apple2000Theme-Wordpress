@@ -15,6 +15,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<!-- <link rel="stylesheet" type="text/css" href="node_modules/@meteorcity/apple2000/dist/styles.css" /> -->
 
 	<?php wp_head(); ?>
 </head>

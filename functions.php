@@ -175,3 +175,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Theme Settings
  */
 require get_template_directory() . '/inc/theme-options.php';
+
+
+/**
+ * I'M JUST PUTTING THIS HERE FOR NOW!!!
+ */
+function apple_2000_setup() {
+	wp_enqueue_style( 'apple2000', get_template_directory_uri() . '/node_modules/@meteorcity/apple2000/dist/styles.css' );
+}
+add_action( 'wp_enqueue_scripts', 'apple_2000_setup' );
