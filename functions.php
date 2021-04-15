@@ -178,7 +178,12 @@ require get_template_directory() . '/inc/theme-options.php';
 
 
 /**
- * I'M JUST PUTTING THIS HERE FOR NOW!!!
+ * @TODO I'M JUST PUTTING THIS HERE FOR NOW!!!
+ * 
+ * In the future, we might need to clean up this file and figue
+ * out what scripts we ACTUALLY want to put here. For now, I'm
+ * just leaving it all in so I don't break anything 😬
+ * ~reccanti 4/14/2021
  */
 function apple_2000_setup() {
 	wp_enqueue_style( 'apple2000', get_template_directory_uri() . '/node_modules/@meteorcity/apple2000/dist/styles.css' );
