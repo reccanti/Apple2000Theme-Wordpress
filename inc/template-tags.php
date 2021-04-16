@@ -56,11 +56,36 @@ if ( ! function_exists( 'gutenberg_starter_theme_entry_footer' ) ) :
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'gutenberg-starter-theme' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'gutenberg-starter-theme' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			// $tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'gutenberg-starter-theme' ) );
+			// if ( $tags_list ) {
+			// 	/* translators: 1: list of tags. */
+			// 	printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'gutenberg-starter-theme' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			// }
+			/**
+			 * @TODO - Let's figure out how to make our "tag" list. This will
+			 * be weird because we're actually going to be combining several different
+			 * things. Here is what we'll do
+			 * 
+			 * 1. Create a general-purpose "create tag" function that will generate
+			 *    the HTML for a tag (link, text)
+			 * 2. Combine all elements into a single list
+			 * 3. Create a switch statement that figures out how to render the tag
+			 *    based on its taxonomy (we may need to figure out other ways of
+			 *    identifying these)
+			 * 
+			 * ~reccanti 4/16/2021
+			 */
+
+			$tags = get_the_tags();
+			$tag_output = '<ul class="TagList">';
+			if ( $tags ) {
+				foreach($tags as $tag)  {
+						$tag_link = get_tag_link( $tag->term_id );
+						$tag_output .= '<li class="Tag"><a href="'.$tag_link.'">'.$tag->taxonomy.'</a></li>';
+				}
 			}
+			$tag_output .= '</ul>';
+			printf($tag_output);
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
