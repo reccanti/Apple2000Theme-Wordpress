@@ -9,51 +9,24 @@
 
 ?>
  <?php /* post_class(); */ ?>
-<section id="post-<?php the_ID(); ?>" class="ShmancySection">
-	<div class="ShmancySection-inner">
-		<header class="entry-header">
-			<?php
-			if ( is_singular() ) :
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			else :
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-				if ( has_post_thumbnail() ) :
-					the_post_thumbnail();
-				endif;
-			endif;
-
-			if ( 'post' === get_post_type() ) : ?>
-			<div class="entry-meta">
-				<?php gutenberg_starter_theme_posted_on(); ?>
-			</div><!-- .entry-meta -->
-			<?php
-			endif; ?>
-		</header><!-- .entry-header -->
-
-		<div class="entry-content">
-			<?php
-				the_content( sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'gutenberg-starter-theme' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				) );
-
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'gutenberg-starter-theme' ),
-					'after'  => '</div>',
-				) );
-			?>
-		</div><!-- .entry-content -->
-
-		<footer class="entry-footer">
-			<?php gutenberg_starter_theme_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
-	</div>
+<section id="post-<?php the_ID(); ?>">
+	<?php 
+		if (is_a_webcomic()) {
+			/**
+			 * @TODO For some reason get_template_part isn't working here. I'm
+			 * tired and frustrated and don't know why this doesn't work so this
+			 * is what we're doing right now!!! 
+			 * 
+			 * This searches for the template in `template-parts` named 
+			 * `content-comic.php` and then loads it if it finds it 
+			 * (that's what the `true` is)
+			 * 
+			 * ~reccanti 4/18/2021
+			 */
+			locate_template('template-parts/content-comic.php', true);
+			// get_template_part('template-parts/content-comic.php');
+		} else {
+			get_template_part('content', 'post');
+		}
+	?>
 </section><!-- #post-<?php the_ID(); ?> -->

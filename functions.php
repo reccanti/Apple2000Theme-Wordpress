@@ -189,3 +189,18 @@ function apple_2000_setup() {
 	wp_enqueue_style( 'apple2000', get_template_directory_uri() . '/node_modules/@meteorcity/apple2000/dist/styles.css' );
 }
 add_action( 'wp_enqueue_scripts', 'apple_2000_setup' );
+
+// function change_class($class) {
+// 	$class .= " a-class";
+// 	return $class;
+// }
+
+// add_filter("get_image_tag_class", "change_class", 10, 4);
+
+function image_tag_class($attributes) {
+	if (is_webcomic()) {
+		$attributes["class"] = "Comic-image";
+	}
+	return $attributes;
+}
+add_filter('wp_get_attachment_image_attributes', 'image_tag_class');

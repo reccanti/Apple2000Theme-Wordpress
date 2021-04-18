@@ -25,3 +25,12 @@
 	font-size: var(--tag-font-size);
 	text-align: center;
 }
+
+.Comic-image {
+	/** 
+   * @TODO Need to add this back to the theme. Overrides html
+   * "height" attributes
+   * ~reccanti 4/18/2021
+   */
+	height: auto;
+}
