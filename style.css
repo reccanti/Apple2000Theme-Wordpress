@@ -1,0 +1,27 @@
+/**
+ * @TODO Right now I'm just treating these as catch-all styles for things
+ * that aren't handled by the Apple2000 blocks. As these styles evolve, let's
+ * move them into their own blocks, or more ordered styles
+ *
+ * ~reccanti 4/18/2021
+ */
+
+/* Header Styles */
+
+.site-header {
+	padding: var(--space-1);
+}
+
+.site-header-home-link {
+	display: inline-block;
+	padding: var(--space-half);
+	font-family: var(--font-headers);
+}
+
+/* Footer Styles */
+
+.site-footer {
+	padding: var(--space-2);
+	font-size: var(--tag-font-size);
+	text-align: center;
+}

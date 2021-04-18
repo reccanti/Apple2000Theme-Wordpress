@@ -9,11 +9,7 @@
 
 ?>
 
-<section id="post-<?php the_ID(); ?>" class="ShmancySection" >
-	<div class="ShmancySection-inner" >
-		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		</header><!-- .entry-header -->
+<!-- #post-<?php the_ID(); ?> -->
 
 		<div class="entry-content">
 			<?php
@@ -48,5 +44,5 @@
 				?>
 			</footer><!-- .entry-footer -->
 		<?php endif; ?>
-	</div>
-</section><!-- #post-<?php the_ID(); ?> -->
+	
+<!-- #post-<?php the_ID(); ?> -->
