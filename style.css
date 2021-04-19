@@ -34,3 +34,29 @@
    */
 	height: auto;
 }
+
+/**
+ * @TODO Add this component to the original Apple2000 Theme
+ * ~reccanti 4/18/2021
+ */
+.Banner {
+	background: var(--foreground-color);
+	color: var(--background-color);
+	padding: var(--space-half) 0;
+	overflow: hidden;
+}
+
+.Banner-inner {
+	font-family: var(--font-headers);
+	animation: 20s infinite linear ticker;
+	display: inline-block;
+}
+
+@keyframes ticker {
+	from {
+		transform: translateX(100vw);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}

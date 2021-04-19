@@ -7,6 +7,15 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<!-- 
+		@TODO Let's find a more reusable way of managing this
+		in the future. Maybe a gutenberg block? 
+	-->
+	<div class="Banner">
+		<span class="Banner-inner">
+			UNDER CONSTRUCTION! Social media links and site description coming soon!
+		</span>
+	</div>
   <!-- 
     @NOTE We don't want to show the normal site header on the landing page.
     This isn't the most elegant solution, but I can't think of a better way
