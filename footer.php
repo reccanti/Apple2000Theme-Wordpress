@@ -13,6 +13,14 @@
 </div>
 
 <?php wp_footer(); ?>
-
+  <!-- 
+    @TODO Let's find a more reusable way of managing this
+    in the future. Maybe a gutenberg block? 
+  -->
+  <div class="Banner">
+    <span class="Banner-inner">
+      UNDER CONSTRUCTION! Social media links and site description coming soon!
+    </span>
+  </div>
 </body>
 </html>

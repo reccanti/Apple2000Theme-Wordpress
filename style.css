@@ -50,6 +50,7 @@
 	font-family: var(--font-headers);
 	animation: 20s infinite linear ticker;
 	display: inline-block;
+	white-space: nowrap;
 }
 
 @keyframes ticker {
@@ -59,4 +60,148 @@
 	to {
 		transform: translateX(-100%);
 	}
+}
+
+/**
+ * @TODO Add these as styles in Apple2000 later. While you're
+ * at it, add overrides for weird mobile styles too!
+ * ~reccanti 4/19/2021
+ */
+input[type="email"],
+input[type="url"] {
+	/* resets */
+	background: unset;
+	font: unset;
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+	box-sizing: border-box;
+	border: 1px solid var(--foreground-color);
+	padding: var(--space-half);
+	font-style: italic;
+	font-size: var(--base-font-size);
+	width: 100%;
+}
+
+input[type="email"]:focus,
+input[type="url"]:focus {
+	outline: none;
+	background-color: var(--foreground-color);
+	color: var(--background-color);
+	font-style: normal;
+}
+
+/* Style "submit" inputs like a button */
+input[type="submit"] {
+	background: unset;
+	font: unset;
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+	box-sizing: border-box;
+	border: 1px solid var(--foreground-color);
+	padding: var(--space-half);
+	font-size: var(--base-font-size);
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+	cursor: pointer;
+	background-color: var(--foreground-color);
+	color: var(--background-color);
+}
+
+/** 
+ * Styling for the WordpressComment Form. 
+ * Pretty specific, so no need to abstract this
+ * into a block or anything
+ */
+
+/**
+ * Stuff for individual comments
+ */
+.comment-list {
+	list-style-type: none;
+}
+
+.comment-list > * {
+	margin: 0;
+}
+
+.comment-list > *:not(:first-child) {
+	margin-top: var(--space-1);
+}
+
+.comment-body > *:not(:first-child),
+.comment-meta > *:not(:first-child) {
+	margin-top: var(--space-half);
+}
+
+.comment .children {
+	list-style-type: none;
+	margin-top: var(--space-1);
+	border-left: 2px solid var(--foreground-color);
+	/* padding-left: var(--space-1); */
+}
+
+.comment-metadata {
+	font-size: var(--tag-font-size);
+	font-family: var(--font-headers);
+}
+
+/**
+ * Comment Response stuff
+ */
+
+/** 
+ * @NOTE Really specific override for when
+ * the comment-respond is the only child in the
+ * section. Probably kinda brittle.
+ * ~reccanti 4/19/2021
+ */
+.ShmancySection-inner > .comment-respond {
+	margin-top: 0;
+}
+
+.comment-respond {
+	margin-top: var(--space-2);
+}
+
+.comment-respond small {
+	font-size: var(--base-font-size);
+	margin-left: var(--space-half);
+}
+
+.comment-reply-title {
+	display: flex;
+	align-items: center;
+}
+
+/**
+ * Stuff for the Comment Form
+ */
+.comment-form > *:not(:first-child) {
+	margin-top: var(--space-1);
+}
+
+.comment-form label {
+	display: block;
+	margin-bottom: var(--space-half);
+}
+
+.comment-form label > .required {
+	display: inline;
+}
+
+/**
+ * @NOTE Let's make the cookie consent checkbox
+ * align itself horizontally with its label. We'll
+ * also top-align them
+ * ~reccanti 4/19/2021
+ */
+.comment-form-cookies-consent {
+	display: flex;
+	align-items: baseline;
+}
+
+.comment-form-cookies-consent > input[type="checkbox"] {
+	margin-right: var(--space-half);
 }
