@@ -157,7 +157,7 @@ input[type="submit"]:focus {
  * section. Probably kinda brittle.
  * ~reccanti 4/19/2021
  */
-.ShmancySection-inner > .comment-respond {
+.ShmancySection-inner > .comment-respond:first-child {
 	margin-top: 0;
 }
 

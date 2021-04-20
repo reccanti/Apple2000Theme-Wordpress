@@ -11,11 +11,13 @@
 		@TODO Let's find a more reusable way of managing this
 		in the future. Maybe a gutenberg block? 
 	-->
-	<div class="Banner">
-		<span class="Banner-inner">
-			UNDER CONSTRUCTION! Social media links and site description coming soon!
-		</span>
-	</div>
+  <?php if (get_theme_mod( "apple_2000_banner" )) : ?>
+    <div class="Banner">
+      <span class="Banner-inner">
+        <?php print_r(get_theme_mod("apple_2000_banner")); ?>
+      </span>
+    </div>
+  <?php endif; ?>
   <!-- 
     @NOTE We don't want to show the normal site header on the landing page.
     This isn't the most elegant solution, but I can't think of a better way

@@ -190,17 +190,35 @@ function apple_2000_setup() {
 }
 add_action( 'wp_enqueue_scripts', 'apple_2000_setup' );
 
-// function change_class($class) {
-// 	$class .= " a-class";
-// 	return $class;
-// }
 
-// add_filter("get_image_tag_class", "change_class", 10, 4);
+function apple_2000_customize_register( $wp_customize ) {
+	// register the new section
+	$wp_customize->add_section( 'apple_2000_identity' , array(
+    'title'      => __( 'Apple 2000', 'Apple 2000' ),
+    'priority'   => 1000,
+	) );
 
-function image_tag_class($attributes) {
+	// register the field to enter this
+	$wp_customize->add_setting('apple_2000_banner', array());
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'apple_2000_banner',
+		array(
+				'label'      => __( 'Banner', 'textdomain' ),
+				'description' => __( 'Banner that will appear at the top and bottom of the site', 'textdomain' ),
+				'settings'   => 'apple_2000_banner',
+				'priority'   => 10,
+				'section'    => 'apple_2000_identity',
+				'type'       => 'text',
+		)
+	) );
+}
+add_action( 'customize_register', 'apple_2000_customize_register' );
+
+function apple_2000_customize_comic_image($attributes) {
 	if (is_webcomic()) {
 		$attributes["class"] = "Comic-image";
 	}
 	return $attributes;
 }
-add_filter('wp_get_attachment_image_attributes', 'image_tag_class');
+add_filter('wp_get_attachment_image_attributes', 'apple_2000_customize_comic_image');
