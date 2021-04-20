@@ -205,3 +205,47 @@ input[type="submit"]:focus {
 .comment-form-cookies-consent > input[type="checkbox"] {
 	margin-right: var(--space-half);
 }
+
+/**
+ * A utility class to style links as buttons
+ *
+ * @TODO move this utility back into Apple2000
+ * ~reccanti 4/19/2021
+ */
+a.link-button {
+	background: unset;
+	font: unset;
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+	box-sizing: border-box;
+	border: 1px solid var(--foreground-color);
+	padding: var(--space-half);
+	font-size: var(--base-font-size);
+	text-align: center;
+	text-decoration: none;
+}
+
+a.link-button:hover,
+a.link-button:focus {
+	cursor: pointer;
+	background-color: var(--foreground-color);
+	color: var(--background-color);
+}
+
+.Comic-nav {
+	display: grid !important;
+	grid-template-areas: "First Previous Next Last";
+	grid-auto-columns: 1fr;
+}
+.Comic-firstLink {
+	grid-area: First;
+}
+.Comic-previousLink {
+	grid-area: Previous;
+}
+.Comic-nextLink {
+	grid-area: Next;
+}
+.Comic-lastLink {
+	grid-area: Last;
+}

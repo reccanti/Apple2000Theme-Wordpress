@@ -222,3 +222,13 @@ function apple_2000_customize_comic_image($attributes) {
 	return $attributes;
 }
 add_filter('wp_get_attachment_image_attributes', 'apple_2000_customize_comic_image');
+
+function apple_2000_customize_comic_links($classes, $args, $comic) {
+	$classes[] = "link-button";
+	if ($args["relation"] == "first")    : $classes[] = "Comic-firstLink";    endif;
+	if ($args["relation"] == "previous") : $classes[] = "Comic-previousLink"; endif;
+	if ($args["relation"] == "next")     : $classes[] = "Comic-nextLink";     endif;
+	if ($args["relation"] == "last")     : $classes[] = "Comic-lastLink";     endif;
+	return $classes;
+}
+add_filter('get_webcomic_link_class', 'apple_2000_customize_comic_links', 10, 3);
