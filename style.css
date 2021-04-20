@@ -249,3 +249,7 @@ a.link-button:focus {
 .Comic-lastLink {
 	grid-area: Last;
 }
+
+strong {
+	font-weight: bold !important;
+}
